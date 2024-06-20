@@ -19,7 +19,7 @@ export class ReservationsService {
   }
 
   async findAll() {
-    return await this.reservationRepository.find(/* { relations: ['workspace, room, session'] } */);
+    return await this.reservationRepository.find( { relations:{ session: true, user:true }} );
   }
 
 
