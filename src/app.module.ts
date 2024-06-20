@@ -6,6 +6,8 @@ import { ConfigModule, ConfigType } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import dbConfig from './persistence/db-config';
 import { User } from './modules/users/entities/user.entity';
+import { RoomsModule } from './modules/rooms/rooms.module';
+import { WorkspacesModule } from './modules/workspaces/workspaces.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -36,7 +38,9 @@ import { User } from './modules/users/entities/user.entity';
       };
     },
     inject: [dbConfig.KEY]}),
-    UsersModule],
+    UsersModule,
+    RoomsModule,
+    WorkspacesModule],
   controllers: [AppController],
   providers: [AppService],
 })
