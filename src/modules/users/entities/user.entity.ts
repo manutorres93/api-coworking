@@ -1,5 +1,7 @@
 import { IsEmail } from 'class-validator';
-import { Column, DeleteDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Session } from 'src/modules/sessions/entities/session.entity';
+import { Reservation } from 'src/modules/reservations/entities/reservation.entity';
 
 @Entity({name: 'users'})
 export class User {
@@ -15,6 +17,9 @@ export class User {
     @Column()
     @IsEmail()
     email: string;
+
+    @OneToMany(()=> Reservation, (reservation)=> reservation.user)
+    reservation: Reservation[]
 
 
 }

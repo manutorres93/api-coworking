@@ -8,6 +8,10 @@ import dbConfig from './persistence/db-config';
 import { User } from './modules/users/entities/user.entity';
 import { RoomsModule } from './modules/rooms/rooms.module';
 import { WorkspacesModule } from './modules/workspaces/workspaces.module';
+import { Workspace } from './modules/workspaces/entities/workspace.entity';
+import { Room } from './modules/rooms/entities/room.entity';
+import { ReservationsModule } from './modules/reservations/reservations.module';
+import { SessionsModule } from './modules/sessions/sessions.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -27,7 +31,7 @@ import { WorkspacesModule } from './modules/workspaces/workspaces.module';
         username: db.user,
         password: db.password,
         database: db.name,
-        entities: ['dist/**/*.entity{.ts,.js}', User],
+        entities: ['dist/**/*.entity{.ts,.js}', User, Workspace, Room],
         autoLoadEntities: true,
         synchronize: false,
         retryDelay:3000,
@@ -40,7 +44,9 @@ import { WorkspacesModule } from './modules/workspaces/workspaces.module';
     inject: [dbConfig.KEY]}),
     UsersModule,
     RoomsModule,
-    WorkspacesModule],
+    WorkspacesModule,
+    ReservationsModule,
+    SessionsModule],
   controllers: [AppController],
   providers: [AppService],
 })
