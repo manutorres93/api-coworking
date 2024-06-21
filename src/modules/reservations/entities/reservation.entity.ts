@@ -1,4 +1,4 @@
-import {  IsNumber, IsString } from 'class-validator';
+import {  IsNumber } from 'class-validator';
 import { Session } from 'src/modules/sessions/entities/session.entity';
 import { User } from 'src/modules/users/entities/user.entity';
 import { Workspace } from 'src/modules/workspaces/entities/workspace.entity';

@@ -3,7 +3,9 @@ import { ReservationsService } from './reservations.service';
 import { CreateReservationDto } from './dto/create-reservation.dto';
 import { UpdateReservationDto } from './dto/update-reservation.dto';
 import { Workspace } from '../workspaces/entities/workspace.entity';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('users') 
 @Controller('reservations')
 export class ReservationsController {
   constructor(private readonly reservationsService: ReservationsService) {}

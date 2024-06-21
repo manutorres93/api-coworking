@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { CreateSessionDto } from './dto/create-session.dto';
 import { UpdateSessionDto } from './dto/update-session.dto';
 import { Session } from './entities/session.entity';
@@ -19,33 +19,53 @@ export class SessionsService {
   }
 
   async findAll() {
-    return await this.sessionRepository.find({ relations: ['room'] });
+    try {
+      return await this.sessionRepository.find({ relations: ['room'] });
+      
+    } catch (error) {
+      throw new InternalServerErrorException('Error trying to find sessions',error.message);
+    }
   }
 
   async findSessionsOrderedByMostOccupied(): Promise<Session[]> {
-    return await this.sessionRepository
-      .createQueryBuilder('session')
-      .leftJoin('session.reservation', 'reservation')
-      .select('session.id', 'id')
-      .addSelect('session.description', 'description')
-      .addSelect('COUNT(reservation.id)', 'num_reservations')
-      .groupBy('session.id')
-      .addGroupBy('session.description')
-      .orderBy('num_reservations', 'DESC')
-      .getRawMany();
+
+    try {
+      return await this.sessionRepository
+        .createQueryBuilder('session')
+        .leftJoin('session.reservation', 'reservation')
+        .select('session.id', 'id')
+        .addSelect('session.description', 'description')
+        .addSelect('COUNT(reservation.id)', 'num_reservations')
+        .groupBy('session.id')
+        .addGroupBy('session.description')
+        .orderBy('num_reservations', 'DESC')
+        .getRawMany();
+      
+    } catch (error) {
+
+      throw new InternalServerErrorException('Error trying to find sessions',error.message);
+      
+    }
   }
 
   async findSessionsOrderedByMostAvailable(): Promise<Session[]> {
-    return await this.sessionRepository
-      .createQueryBuilder('session')
-      .leftJoin('session.reservation', 'reservation')
-      .select('session.id', 'id')
-      .addSelect('session.description', 'description')
-      .addSelect('COUNT(reservation.id)', 'num_reservations')
-      .groupBy('session.id')
-      .addGroupBy('session.description')
-      .orderBy('num_reservations', 'ASC')
-      .getRawMany();
+    try {
+      return await this.sessionRepository
+        .createQueryBuilder('session')
+        .leftJoin('session.reservation', 'reservation')
+        .select('session.id', 'id')
+        .addSelect('session.description', 'description')
+        .addSelect('COUNT(reservation.id)', 'num_reservations')
+        .groupBy('session.id')
+        .addGroupBy('session.description')
+        .orderBy('num_reservations', 'ASC')
+        .getRawMany();
+      
+    } catch (error) {
+
+      throw new InternalServerErrorException('Error trying to find sessions',error.message);
+      
+    }
   }
 
 

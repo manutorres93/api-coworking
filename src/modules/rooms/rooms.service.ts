@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
 import { Room } from './entities/room.entity';
@@ -18,7 +18,12 @@ export class RoomsService {
   }
 
   async findAll() {
-    return await this.roomRepository.find();
+    try {
+      return await this.roomRepository.find();
+      
+    } catch (error) {
+      throw new InternalServerErrorException('Error trying to find rooms',error.message);
+    }
   }
 
   findOne(id: number) {

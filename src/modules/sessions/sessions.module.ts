@@ -12,5 +12,6 @@ import { Session } from './entities/session.entity';
   ],
   controllers: [SessionsController],
   providers: [SessionsService],
+  exports:[TypeOrmModule]
 })
 export class SessionsModule {}
