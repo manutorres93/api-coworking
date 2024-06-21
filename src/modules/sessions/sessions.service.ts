@@ -13,6 +13,7 @@ export class SessionsService {
     
   ) {}
 
+
   async findAll() {
     try {
       return await this.sessionRepository.find({ relations: ['room'] });

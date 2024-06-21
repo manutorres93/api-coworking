@@ -1,7 +1,6 @@
 import { IsEmail } from 'class-validator';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Session } from 'src/modules/sessions/entities/session.entity';
-import { Reservation } from 'src/modules/reservations/entities/reservation.entity';
+import { Reservation } from '@modules/reservations/entities/reservation.entity';
 
 @Entity({name: 'users'})
 export class User {
