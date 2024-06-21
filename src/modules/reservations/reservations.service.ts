@@ -84,15 +84,5 @@ export class ReservationsService {
   }
 
 
-  findOne(id: number) {
-    return `This action returns a #${id} reservation`;
-  }
 
-  update(id: number, updateReservationDto: UpdateReservationDto) {
-    return `This action updates a #${id} reservation`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} reservation`;
-  }
 }
