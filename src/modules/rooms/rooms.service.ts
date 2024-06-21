@@ -1,6 +1,4 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { CreateRoomDto } from './dto/create-room.dto';
-import { UpdateRoomDto } from './dto/update-room.dto';
 import { Room } from './entities/room.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -13,9 +11,7 @@ export class RoomsService {
     private roomRepository: Repository<Room>,
     
   ) {}
-  create(createRoomDto: CreateRoomDto) {
-    return 'This action adds a new room';
-  }
+
 
   async findAll() {
     try {
@@ -26,15 +22,4 @@ export class RoomsService {
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} room`;
-  }
-
-  update(id: number, updateRoomDto: UpdateRoomDto) {
-    return `This action updates a #${id} room`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} room`;
-  }
 }
