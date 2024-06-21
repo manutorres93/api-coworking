@@ -25,9 +25,7 @@ export class ReservationsService {
     private readonly sessionRepository: Repository<Session>,
     
   ) {}
-  create(createReservationDto: CreateReservationDto) {
-    return 'This action adds a new reservation';
-  }
+
 
   async findAll() {
 
