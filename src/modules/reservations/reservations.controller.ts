@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { ReservationsService } from './reservations.service';
-import { CreateReservationDto } from './dto/create-reservation.dto';
-import { UpdateReservationDto } from './dto/update-reservation.dto';
+
 import { Workspace } from '../workspaces/entities/workspace.entity';
 import { ApiTags } from '@nestjs/swagger';
 
@@ -10,10 +9,7 @@ import { ApiTags } from '@nestjs/swagger';
 export class ReservationsController {
   constructor(private readonly reservationsService: ReservationsService) {}
 
-  @Post()
-  create(@Body() createReservationDto: CreateReservationDto) {
-    return this.reservationsService.create(createReservationDto);
-  }
+
 
   @Get()
   findAll() {
