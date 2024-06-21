@@ -1,6 +1,6 @@
-import { Session } from 'src/modules/sessions/entities/session.entity';
+import { Session } from '@modules/sessions/entities/session.entity';
 import {  IsNumber, IsString } from 'class-validator';
-import { Workspace } from 'src/modules/workspaces/entities/workspace.entity';
+import { Workspace } from '@modules/workspaces/entities/workspace.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({name: 'rooms'})

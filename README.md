@@ -22,14 +22,34 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+# Coworking Riwi API - v1
+
+Coworking Riwi API is an application backend developed in Node.js with the framework Nest.js, designed to reserve coworking spaces for a specific session to facilitate space occupancy management and improve user experience
+
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
 
+To use this API on your local machine, please clone the repository and configure the necessary environment variables for the database
+
+1. Clone the repository.
+2. Install the necessary dependencies.
+
 ```bash
 $ npm install
+```
+3.Copy the .env.example file into a new .env file on your local environment and configure the necessary variables. You can also copy the variables from here and paste it into your own .env file. You can modify the variables as you needed.
+
+```bash
+DB_CONNECTION = your_db_connection
+DB_HOST = your_database_host
+DB_USER =your_ database_user
+DB_PASSWORD = your_database_password
+DB_PORT=your_port
+DB_NAME=your_database_name
 ```
 
 ## Running the app
@@ -51,12 +71,25 @@ $ npm run start:prod
 # unit tests
 $ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
+
+## Postman resources
+
+You can use the postman_collection.json file you can found into the docs folder to interact with this API, after importing the file into your postman application. Is also publised in https://documenter.getpostman.com/view/24858364/2sA3JNafN8.
+
+## Swagger resources
+
+You can use the swagger documentation following the next link: http://localhost:3000/api-documentation. Note that the port (3000) can change if you set a different one into your .env file.
+
+
+## Deployment
+
+You can interact with the app using the following URL:
+
+[Test the API](http://190.147.64.47:5155/api-doc) 
+
+
+This shows the latest update of the branch `main`.
 
 ## Support
 
@@ -64,9 +97,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Manuela Torres](https://github.com/manutorres93)
+
 
 ## License
 

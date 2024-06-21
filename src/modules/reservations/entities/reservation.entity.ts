@@ -1,7 +1,7 @@
 import {  IsNumber } from 'class-validator';
-import { Session } from 'src/modules/sessions/entities/session.entity';
-import { User } from 'src/modules/users/entities/user.entity';
-import { Workspace } from 'src/modules/workspaces/entities/workspace.entity';
+import { Session } from '@modules/sessions/entities/session.entity';
+import { User } from '@modules/users/entities/user.entity';
+import { Workspace } from '@modules/workspaces/entities/workspace.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({name: 'reservations'})

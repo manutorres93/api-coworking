@@ -3,13 +3,19 @@ import { ReservationsService } from './reservations.service';
 
 import { Workspace } from '../workspaces/entities/workspace.entity';
 import { ApiTags } from '@nestjs/swagger';
+import { CreateReservationDto } from './dto/create-reservation.dto';
+import { Reservation } from './entities/reservation.entity';
+import { Relation } from 'typeorm';
 
-@ApiTags('users') 
+@ApiTags('reservations') 
 @Controller('reservations')
 export class ReservationsController {
   constructor(private readonly reservationsService: ReservationsService) {}
 
-
+  @Post()
+  async create(@Body() createReservationDto: CreateReservationDto): Promise<Reservation[]> {
+    return this.reservationsService.create(createReservationDto);
+  }
 
   @Get()
   findAll() {

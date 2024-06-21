@@ -6,6 +6,7 @@ import { Repository } from 'typeorm';
 import { Workspace } from '../workspaces/entities/workspace.entity';
 import { User } from '../users/entities/user.entity';
 import { Session } from '../sessions/entities/session.entity';
+import { CreateReservationDto } from './dto/create-reservation.dto';
 
 @Injectable()
 export class ReservationsService {
@@ -25,9 +26,37 @@ export class ReservationsService {
     private readonly sessionRepository: Repository<Session>,
     
   ) {}
-  create(createReservationDto: CreateReservationDto) {
-    return 'This action adds a new reservation';
+
+  
+  async create(createReservationDto: CreateReservationDto) {
+
+    try {
+
+      const existingReservation = await this.reservationRepository.findOne({
+        where: {
+          session_id: createReservationDto.session_id,
+          workspace_id: createReservationDto.workspace_id,
+        },
+      });
+
+      if (existingReservation) {
+        throw new BadRequestException('This workspace is already reserved in this session.');
+      }
+
+      const reservation= this.reservationRepository.create(createReservationDto);
+      const reservationMade= await this.reservationRepository.save(reservation);
+
+      const reservationWithRelations= this.reservationRepository.find({relations:{ session: true, user:true }, where: { id:reservationMade.id }})
+
+      return reservationWithRelations
+      
+    } catch (error) {
+      throw new BadRequestException('Error creating the reservation', error.message)
+    }
+    
+    
   }
+
 
   async findAll() {
 
@@ -78,7 +107,7 @@ export class ReservationsService {
         .getMany();
       
     } catch (error) {
-      throw new BadRequestException('Error trying to find workspaces by user session', error.message)
+      throw new BadRequestException('Error trying to find workspaces by user session ', error.message)
     }
   }
 

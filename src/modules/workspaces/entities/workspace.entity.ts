@@ -1,8 +1,7 @@
 import {  IsNumber, IsString } from 'class-validator';
-import { Room } from 'src/modules/rooms/entities/room.entity';
+import { Room } from '@modules/rooms/entities/room.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Session } from 'src/modules/sessions/entities/session.entity';
-import { Reservation } from 'src/modules/reservations/entities/reservation.entity';
+import { Reservation } from '@modules/reservations/entities/reservation.entity';
 
 
 @Entity({name: 'workspaces'})
