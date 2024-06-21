@@ -2,6 +2,8 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { SessionsService } from './sessions.service';
 import { CreateSessionDto } from './dto/create-session.dto';
 import { UpdateSessionDto } from './dto/update-session.dto';
+import { Session } from './entities/session.entity';
+
 
 @Controller('sessions')
 export class SessionsController {
@@ -15,6 +17,16 @@ export class SessionsController {
   @Get()
   findAll() {
     return this.sessionsService.findAll();
+  }
+
+  @Get('most-occupied')
+  async getSessionsOrderedByMostOccupied(): Promise<Session[]> {
+    return this.sessionsService.findSessionsOrderedByMostOccupied();
+  }
+
+  @Get('most-available')
+  async getSessionsOrderedByMostAvailable(): Promise<Session[]> {
+    return this.sessionsService.findSessionsOrderedByMostAvailable();
   }
 
   @Get(':id')

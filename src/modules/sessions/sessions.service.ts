@@ -22,6 +22,32 @@ export class SessionsService {
     return await this.sessionRepository.find({ relations: ['room'] });
   }
 
+  async findSessionsOrderedByMostOccupied(): Promise<Session[]> {
+    return await this.sessionRepository
+      .createQueryBuilder('session')
+      .leftJoin('session.reservation', 'reservation')
+      .select('session.id', 'id')
+      .addSelect('session.description', 'description')
+      .addSelect('COUNT(reservation.id)', 'num_reservations')
+      .groupBy('session.id')
+      .addGroupBy('session.description')
+      .orderBy('num_reservations', 'DESC')
+      .getRawMany();
+  }
+
+  async findSessionsOrderedByMostAvailable(): Promise<Session[]> {
+    return await this.sessionRepository
+      .createQueryBuilder('session')
+      .leftJoin('session.reservation', 'reservation')
+      .select('session.id', 'id')
+      .addSelect('session.description', 'description')
+      .addSelect('COUNT(reservation.id)', 'num_reservations')
+      .groupBy('session.id')
+      .addGroupBy('session.description')
+      .orderBy('num_reservations', 'ASC')
+      .getRawMany();
+  }
+
 
   findOne(id: number) {
     return `This action returns a #${id} session`;
