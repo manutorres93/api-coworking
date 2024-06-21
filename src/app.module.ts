@@ -35,7 +35,7 @@ import { SessionsModule } from './modules/sessions/sessions.module';
         autoLoadEntities: true,
         synchronize: false,
         retryDelay:3000,
-        retryAttempts:10, // Esto no debería estar en producción
+        //retryAttempts:10, // Esto no debería estar en producción
         ssl: {
           rejectUnauthorized: false, // Asegúrate de investigar esta opción y ajustarla según sea necesario para producción.
         },
