@@ -3,7 +3,6 @@ import { BadRequestException, Injectable, InternalServerErrorException, NotFound
 import { InjectRepository } from '@nestjs/typeorm';
 import { Workspace } from './entities/workspace.entity';
 import { In, Not, Repository } from 'typeorm';
-import { Reservation } from '../reservations/entities/reservation.entity';
 import { Session } from '../sessions/entities/session.entity';
 
 @Injectable()
