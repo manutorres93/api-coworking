@@ -79,7 +79,7 @@ You can use the Riwi_coworking.postman_collection.json file, after importing the
 
 ## Swagger resources
 
-You can use the swagger documentation following the next link: http://localhost:3000/api-documentation is you are runing in your local machine or https://app-9157ced5-e667-4087-a64b-c15e2d229db7.cleverapps.io/api-documentation. Note that the port (3000) can change if you set a different one into your .env file.
+You can use the swagger documentation following the next link: http://localhost:3000/api-documentation if you are runing in your local machine or https://app-9157ced5-e667-4087-a64b-c15e2d229db7.cleverapps.io/api-documentation. Note that the port (3000) can change if you set a different one into your .env file.
 
 
 ## Deployment
