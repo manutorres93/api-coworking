@@ -75,19 +75,20 @@ $ npm run test
 
 ## Postman resources
 
-You can use the postman_collection.json file you can found into the docs folder to interact with this API, after importing the file into your postman application. Is also publised in https://documenter.getpostman.com/view/24858364/2sA3JNafN8.
+You can use the Riwi_coworking.postman_collection.json file, after importing the file into your postman application. Is also publised in https://documenter.getpostman.com/view/24858364/2sA3XWbdQE.
 
 ## Swagger resources
 
-You can use the swagger documentation following the next link: http://localhost:3000/api-documentation. Note that the port (3000) can change if you set a different one into your .env file.
+You can use the swagger documentation following the next link: http://localhost:3000/api-documentation is you are runing in your local machine or https://app-9157ced5-e667-4087-a64b-c15e2d229db7.cleverapps.io/api-documentation. Note that the port (3000) can change if you set a different one into your .env file.
 
 
 ## Deployment
 
 You can interact with the app using the following URL:
 
-[Test the API](http://190.147.64.47:5155/api-doc) 
+[Test the API](https://app-9157ced5-e667-4087-a64b-c15e2d229db7.cleverapps.io/v1/api/sessions) 
 
+NOTE: you should use the URL base https://app-9157ced5-e667-4087-a64b-c15e2d229db7.cleverapps.io/v1/api/ and then complement as you need according to the controllers.
 
 This shows the latest update of the branch `main`.
 

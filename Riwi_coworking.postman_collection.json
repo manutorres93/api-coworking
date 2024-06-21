@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "640393eb-aa26-4f51-ba90-f31a18972a1f",
+		"name": "Riwi_coworking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24858364"
+	},
+	"item": [
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"123456789\",\r\n    \"name\": \"Manuela Torres\",\r\n    \"email\": \"manuela@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllrooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/api/rooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"rooms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllWorkspaces",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/api/workspaces",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"workspaces"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllReservations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/api/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateReservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": 1,\r\n  \"workspace_id\": 1,\r\n  \"session_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/api/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindAvalWorkspace",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/api/workspaces/available/room/3/session/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"workspaces",
+						"available",
+						"room",
+						"3",
+						"session",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindOcupWorkspace",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/api/workspaces/occupied/room/3/session/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"workspaces",
+						"occupied",
+						"room",
+						"3",
+						"session",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindOcupWSNoRoom",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "FindAvalWSNoRoom",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "FindMostOccupiedSession",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/api/sessions/most-occupied",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"sessions",
+						"most-occupied"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindMostAvailable",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "FindWSByUser",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "FindWSSession",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetSessionsDeploy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://app-9157ced5-e667-4087-a64b-c15e2d229db7.cleverapps.io/v1/api/sessions",
+					"protocol": "https",
+					"host": [
+						"app-9157ced5-e667-4087-a64b-c15e2d229db7",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"v1",
+						"api",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
