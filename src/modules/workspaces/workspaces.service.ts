@@ -14,8 +14,7 @@ export class WorkspacesService {
     @InjectRepository(Workspace)
     private workspacesRepository: Repository<Workspace>,
 
-    @InjectRepository(Reservation)
-    private readonly reservationsRepository: Repository<Reservation>,
+
     
   ) {}
   create(createWorkspaceDto: CreateWorkspaceDto) {

@@ -7,10 +7,11 @@ import { ReservationsModule } from '../reservations/reservations.module';
 
 @Module({
   imports:[
-    TypeOrmModule.forFeature([Workspace]), ReservationsModule,
+    TypeOrmModule.forFeature([Workspace]),
     
   ],
   controllers: [WorkspacesController],
   providers: [WorkspacesService],
+  exports:[TypeOrmModule]
 })
 export class WorkspacesModule {}
